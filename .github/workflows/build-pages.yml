@@ -2,8 +2,9 @@ name: Build GitHub Pages
 
 on:
   push:
-    branches:
-      - master
+    paths:
+      - 'UnfinishedBook/**'
+      - 'patch/**'
 
 jobs:
   build-pages:

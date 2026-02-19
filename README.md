@@ -1,6 +1,8 @@
 # 《未竟之书》解包
 
-你为什么期待我会在这里写点什么？
+[在线游玩！](https://okinawa.loli.land/UnfinishedBook-reverse/)
+
+~~我为什么要做这个？~~
 
 ## 工具链
 
