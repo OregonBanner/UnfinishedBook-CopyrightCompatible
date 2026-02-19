@@ -5,6 +5,7 @@ on:
     paths:
       - 'UnfinishedBook/**'
       - 'patch/**'
+      - '.github/workflows/build-pages.yml'
 
 jobs:
   build-pages:
@@ -27,6 +28,11 @@ jobs:
 
       - name: Apply project info patch
         run: git apply patch/add-project-info.patch
+
+      - name: Copy web assets
+        run: |
+          cp UnfinishedBook/game/images/main_menu/main.jpg UnfinishedBook/web-presplash.jpg
+          cp UnfinishedBook/game/gui/window_icon.png UnfinishedBook/web-icon.png
 
       - name: Build RenPy
         uses: PaxlavaGames/renpy-web-build@v0.2.0
