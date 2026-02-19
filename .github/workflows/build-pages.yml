@@ -1,0 +1,29 @@
+name: Build GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-pages:
+    runs-on: ubuntu-latest
+    name: Build GitHub Pages
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Build VN project
+        id: build
+        uses: MightyElemental/renpy-build-action@master
+        with:
+            sdk-version: '8.5.1'
+            project-dir: 'UnfinishedBook'
+            package: web
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Build output
+          path: ${{ steps.build.outputs.dir }}
