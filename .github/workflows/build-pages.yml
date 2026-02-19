@@ -8,22 +8,22 @@ on:
 jobs:
   build-pages:
     runs-on: ubuntu-latest
-    name: Build GitHub Pages
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
-
-      - name: Build VN project
-        id: build
-        uses: MightyElemental/renpy-build-action@master
+      - name: Install RenPy
+        uses: PaxlavaGames/renpy-install@v0.3.0
         with:
-            sdk-version: '8.5.1'
-            project-dir: 'UnfinishedBook'
-            package: web
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v6
+          version: "8.5.1"
+          download_web: "yes"
+      - name: Build RenPy
+        uses: PaxlavaGames/renpy-web-build@v0.2.0
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
         with:
-          name: Build output
-          path: ${{ steps.build.outputs.dir }}
+          path: './web_build'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
