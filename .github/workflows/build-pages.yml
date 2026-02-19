@@ -25,6 +25,9 @@ jobs:
       - name: Apply debug output disable patch
         run: git apply patch/disable-debug-output.patch
 
+      - name: Apply project info patch
+        run: git apply patch/add-project-info.patch
+
       - name: Build RenPy
         uses: PaxlavaGames/renpy-web-build@v0.2.0
         with:

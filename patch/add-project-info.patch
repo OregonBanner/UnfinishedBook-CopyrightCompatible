@@ -1,0 +1,18 @@
+diff --git a/UnfinishedBook/game/screens.rpy b/UnfinishedBook/game/screens.rpy
+index 0a38c95..d671698 100644
+--- a/UnfinishedBook/game/screens.rpy
++++ b/UnfinishedBook/game/screens.rpy
+@@ -913,6 +913,13 @@ screen about():
+ 
+         vbox:
+ 
++            label "网页版移植"
++            
++            text _("{a=https://github.com/kj415j45/UnfinishedBook-reverse}kj415j45/UnfinishedBook-reverse{/a}\n\nYou just DO WHAT THE FUCK YOU WANT TO\n\n")
++
++            label "原著"
++            text _("{a=https://www.bilibili.com/video/BV1phZVBQEFW/}《未竟之书Ⅰ逐星至天明》全流程实况{/a}\n\n")
++
+             label "[config.name!t]"
+             text _("版本 [config.version!t]\n")
+ 
