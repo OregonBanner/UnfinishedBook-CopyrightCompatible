@@ -4,6 +4,8 @@
 
 ## 工具链
 
+解包使用的版本为 `未竟之书-1.0.20260217-pc`。
+
 解包后的结果按原样提供。
 
 - [Shizmob/rpatool](https://github.com/Shizmob/rpatool)
