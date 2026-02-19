@@ -1,0 +1,72 @@
+diff --git a/UnfinishedBook/game/options.rpy b/UnfinishedBook/game/options.rpy
+index 9a0b846..da5bcf5 100644
+--- a/UnfinishedBook/game/options.rpy
++++ b/UnfinishedBook/game/options.rpy
+@@ -55,6 +55,14 @@ define gui.about = _p("""
+ 
+ init python:
+ 
++    # 调试模式开关，发布时设为 False
++    DEBUG_MODE = False
++    
++    def debug_print(msg):
++        """条件调试输出"""
++        if DEBUG_MODE:
++            print(msg)
++
+     _current_character = None
+ 
+     def store_character_callback(who, *args, **kwargs):
+@@ -74,10 +82,10 @@ init python:
+         number_part = id.split('_')[-1]
+         
+         
+-        print("[DEBUG] _current_character 类型: {}".format(type(_current_character)))
+-        print("[DEBUG] _current_character 值: {}".format(_current_character))
+-        print("[DEBUG] 接收到的 id: {}".format(id))
+-        print("[DEBUG] 当前章节: {}".format(chapter))
++        debug_print("[DEBUG] _current_character 类型: {}".format(type(_current_character)))
++        debug_print("[DEBUG] _current_character 值: {}".format(_current_character))
++        debug_print("[DEBUG] 接收到的 id: {}".format(id))
++        debug_print("[DEBUG] 当前章节: {}".format(chapter))
+         
+         
+         if 'Trailblazerreverse' in id:
+@@ -93,7 +101,7 @@ init python:
+                 voice_tag_player = 'Trailblazermale'
+             
+             path = "part{}_ch{}/{}_{}_{}.mp3".format(part_num, ch_num, chapter, voice_tag_player, number_part)
+-            print("[AUTO VOICE DEBUG] 玩家角色 | 性别: {} | voice_tag: {} | 路径: {}".format(
++            debug_print("[AUTO VOICE DEBUG] 玩家角色 | 性别: {} | voice_tag: {} | 路径: {}".format(
+             sex_value, voice_tag_player, path))
+             return path
+         elif 'Trailblazer' in id:
+@@ -108,7 +116,7 @@ init python:
+                 voice_tag_player = 'Trailblazermale'
+             
+             path = "part{}_ch{}/{}_{}_{}.mp3".format(part_num, ch_num, chapter, voice_tag_player, number_part)
+-            print("[AUTO VOICE DEBUG] 玩家角色 | 性别: {} | voice_tag: {} | 路径: {}".format(
++            debug_print("[AUTO VOICE DEBUG] 玩家角色 | 性别: {} | voice_tag: {} | 路径: {}".format(
+             sex_value, voice_tag_player, path))
+             return path
+         
+@@ -121,16 +129,16 @@ init python:
+         elif len(id.split('_')) >= 4:
+             voice_tag = id.split('_')[-2]
+         
+-        print("[DEBUG] 获取到的 voice_tag: {}".format(voice_tag))
++        debug_print("[DEBUG] 获取到的 voice_tag: {}".format(voice_tag))
+         
+         if voice_tag is None:
+             
+             path = "part{}_ch{}/{}__{}.mp3".format(part_num, ch_num, chapter, number_part)
+-            print("[AUTO VOICE DEBUG] 旁白 - 路径: {}".format(path))
++            debug_print("[AUTO VOICE DEBUG] 旁白 - 路径: {}".format(path))
+             return path
+         
+         path = "part{}_ch{}/{}_{}_{}.mp3".format(part_num, ch_num, chapter, voice_tag, number_part)
+-        print("[AUTO VOICE DEBUG] 角色: {} | part: {} | voice_tag: {} | id: {} | 路径: {}".format(
++        debug_print("[AUTO VOICE DEBUG] 角色: {} | part: {} | voice_tag: {} | id: {} | 路径: {}".format(
+         getattr(_current_character, 'name', 'Unknown'), part_num, voice_tag, id, path))
+         return path
+ 
