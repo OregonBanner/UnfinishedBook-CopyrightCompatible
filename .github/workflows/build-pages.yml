@@ -20,6 +20,8 @@ jobs:
 
       - name: Build RenPy
         uses: PaxlavaGames/renpy-web-build@v0.2.0
+        with:
+          path: './UnfinishedBook'
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
