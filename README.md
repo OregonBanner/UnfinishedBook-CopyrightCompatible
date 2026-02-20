@@ -1,6 +1,7 @@
 # 《未竟之书》解包
 
-[在线游玩！](https://okinawa.loli.land/UnfinishedBook-reverse/)
+- [在线游玩！](https://unb.kj415j45.space/) - Powered by [Cloudflare Pages](https://pages.cloudflare.com/)
+- [在线游玩！（备用）](https://okinawa.loli.land/UnfinishedBook-reverse/) - Powered by [Github Pages](https://pages.github.com/)
 
 ~~我为什么要做这个？~~
 

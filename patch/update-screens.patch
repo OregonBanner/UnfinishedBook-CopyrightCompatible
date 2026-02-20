@@ -1,0 +1,13 @@
+diff --git a/UnfinishedBook/game/screens.rpy b/UnfinishedBook/game/screens.rpy
+index 0a38c95..b828ac2 100644
+--- a/UnfinishedBook/game/screens.rpy
++++ b/UnfinishedBook/game/screens.rpy
+@@ -1081,7 +1081,7 @@ style page_label_text:
+     layout "subtitle"
+     size 25
+     hover_color gui.hover_color
+-    font "albbpht.otf"
++    font "msyh.ttf"
+ 
+ style page_button:
+     properties gui.button_properties("page_button")

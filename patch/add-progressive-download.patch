@@ -1,0 +1,18 @@
+diff --git a/UnfinishedBook/progressive_download.txt b/UnfinishedBook/progressive_download.txt
+new file mode 100644
+index 0000000..0a637b7
+--- /dev/null
++++ b/UnfinishedBook/progressive_download.txt
+@@ -0,0 +1,12 @@
++# RenPyWeb progressive download rules - first match applies
++# '+' = progressive download, '-' = keep in game.zip (default)
++# See https://www.renpy.org/doc/html/build.html#classifying-and-ignoring-files for matching
++#
++# +/- type path
+++ image game/gui/new/**
+++ image game/gui/phone/**
+++ image game/gui/textbox*.png
++- image game/gui/**
+++ image game/**
+++ music game/audio/**
+++ voice game/voice/**

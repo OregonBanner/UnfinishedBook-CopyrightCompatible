@@ -29,6 +29,14 @@ jobs:
       - name: Apply project info patch
         run: git apply patch/add-project-info.patch
 
+      - name: Clean up large files for web deployment
+        run: |
+          git apply patch/update-screens.patch
+          rm UnfinishedBook/game/albbpht.otf
+
+      - name: Apply progressive download patch
+        run: git apply patch/add-progressive-download.patch
+
       - name: Copy web assets
         run: |
           cp UnfinishedBook/game/images/main_menu/main.jpg UnfinishedBook/web-presplash.jpg
@@ -48,5 +56,13 @@ jobs:
           path: './web_build'
 
       - name: Deploy to GitHub Pages
-        id: deployment
+        id: deployment-github
         uses: actions/deploy-pages@v4
+
+      - name: Deploy to Cloudflare Pages
+        id: deployment-cloudflare
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: |
+            wrangler pages deploy web_build --project-name unfinished-book --branch master
