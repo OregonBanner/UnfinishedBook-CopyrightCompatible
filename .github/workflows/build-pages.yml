@@ -1,15 +1,23 @@
 name: Build GitHub Pages
 
 on:
-  push:
-    paths:
-      - 'UnfinishedBook/**'
-      - 'patch/**'
-      - '.github/workflows/build-pages.yml'
+  workflow_dispatch:
+    inputs:
+      DeployToCloudflare:
+        description: 'Whether to deploy to Cloudflare Pages'
+        required: false
+        default: false
+        type: boolean
+      DeployToGitHub:
+        description: 'Whether to deploy to GitHub Pages'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   build-pages:
     runs-on: self-hosted
+    if: ${{ inputs.DeployToCloudflare || inputs.DeployToGitHub }}
     permissions:
       id-token: write
       pages: write
@@ -48,23 +56,28 @@ jobs:
           path: './UnfinishedBook'
 
       - name: Setup Pages
+        if: ${{ inputs.DeployToGitHub }}
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
+        if: ${{ inputs.DeployToGitHub }}
         uses: actions/upload-pages-artifact@v4
         with:
           path: './web_build'
 
       - name: Deploy to GitHub Pages
+        if: ${{ inputs.DeployToGitHub }}
         id: deployment-github
         uses: actions/deploy-pages@v4
 
       - name: Set up Node.js
+        if: ${{ inputs.DeployToCloudflare }}
         uses: actions/setup-node@v6
         with:
           node-version: 'latest'
 
       - name: Deploy to Cloudflare Pages
+        if: ${{ inputs.DeployToCloudflare }}
         id: deployment-cloudflare
         uses: cloudflare/wrangler-action@v3
         with:
