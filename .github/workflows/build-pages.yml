@@ -59,6 +59,9 @@ jobs:
         id: deployment-github
         uses: actions/deploy-pages@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+
       - name: Deploy to Cloudflare Pages
         id: deployment-cloudflare
         uses: cloudflare/wrangler-action@v3
