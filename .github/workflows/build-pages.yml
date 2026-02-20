@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       DeployToCloudflare:
-        description: 'Whether to deploy to Cloudflare Pages'
+        description: 'Deploy to Cloudflare Pages'
         required: false
         default: false
         type: boolean
       DeployToGitHub:
-        description: 'Whether to deploy to GitHub Pages'
+        description: 'Deploy to GitHub Pages'
         required: false
         default: false
         type: boolean
