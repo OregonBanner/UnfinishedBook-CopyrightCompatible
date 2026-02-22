@@ -37,10 +37,12 @@ jobs:
       - name: Apply project info patch
         run: git apply patch/add-project-info.patch
 
-      - name: Clean up large files for web deployment
+      - name: Remove un-licensed fonts
         run: |
-          git apply patch/update-screens.patch
+          git apply patch/rollback-fonts.patch
           rm UnfinishedBook/game/albbpht.otf
+          rm UnfinishedBook/game/msyh.ttf
+          rm UnfinishedBook/game/fzbmyyt.ttf
 
       - name: Apply progressive download patch
         run: git apply patch/add-progressive-download.patch
