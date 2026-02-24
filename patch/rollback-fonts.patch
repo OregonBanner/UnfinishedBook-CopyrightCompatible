@@ -1,0 +1,34 @@
+diff --git a/UnfinishedBook/game/gui.rpy b/UnfinishedBook/game/gui.rpy
+index 77aa54a..f573206 100644
+--- a/UnfinishedBook/game/gui.rpy
++++ b/UnfinishedBook/game/gui.rpy
+@@ -58,14 +58,14 @@ define gui.interface_text_color = '#ffffff'
+ 
+ 
+ 
+-define gui.text_font = "msyh.ttf"
++define gui.text_font = "SourceHanSansLite.ttf"
+ 
+ 
+ 
+-define gui.name_text_font = "msyh.ttf"
++define gui.name_text_font = "SourceHanSansLite.ttf"
+ 
+ 
+-define gui.interface_text_font = "msyh.ttf"
++define gui.interface_text_font = "SourceHanSansLite.ttf"
+ 
+ 
+ define gui.text_size = 25
+diff --git a/UnfinishedBook/game/screens.rpy b/UnfinishedBook/game/screens.rpy
+index 0a38c95..91909e8 100644
+--- a/UnfinishedBook/game/screens.rpy
++++ b/UnfinishedBook/game/screens.rpy
+@@ -1081,7 +1081,6 @@ style page_label_text:
+     layout "subtitle"
+     size 25
+     hover_color gui.hover_color
+-    font "albbpht.otf"
+ 
+ style page_button:
+     properties gui.button_properties("page_button")
