@@ -21,7 +21,7 @@ index 77aa54a..f573206 100644
  
  define gui.text_size = 25
 diff --git a/UnfinishedBook/game/screens.rpy b/UnfinishedBook/game/screens.rpy
-index 0a38c95..91909e8 100644
+index 0a38c95..a3bdf83 100644
 --- a/UnfinishedBook/game/screens.rpy
 +++ b/UnfinishedBook/game/screens.rpy
 @@ -1081,7 +1081,6 @@ style page_label_text:
@@ -32,3 +32,21 @@ index 0a38c95..91909e8 100644
  
  style page_button:
      properties gui.button_properties("page_button")
+@@ -1657,7 +1656,7 @@ style history_name:
+ style history_name_text:
+     min_width gui.history_name_width
+     textalign gui.history_name_xalign
+-    font "msyh.ttf"
++    font "SourceHanSansLite.ttf"
+     size 25
+ 
+ 
+@@ -1669,7 +1668,7 @@ style history_text:
+     min_width gui.history_text_width
+     textalign gui.history_text_xalign
+     layout ("subtitle" if gui.history_text_xalign else "tex")
+-    font "msyh.ttf"
++    font "SourceHanSansLite.ttf"
+     size 22
+ 
+ style history_label:
